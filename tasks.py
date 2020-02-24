@@ -1029,7 +1029,7 @@ def docker_build_run_container(
     run(f"docker pull {image_name} || True")
     run(
         (
-            f"docker build -f Dockerfile "
+            f"docker build -f Dockerfile-{image_type} "
             f"--pull --cache-from {image_name} -t {image_type}:v1 ."
         )
     )
