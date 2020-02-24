@@ -991,6 +991,41 @@ def docker_build_run_container(
     """
     Build docker image and run container
     """
+    if cloud_data:
+        pf = "Police Beats (current)"
+        ca = "Community Areas (current)"
+        nb = "Neighborhoods"
+        for geojson, blob_name, shpdirname in zip(
+            [
+                "Boundaries-Community_Areas_current.geojson",
+                "Boundaries-Neighborhoods.geojson",
+                "Police_Beats_current.geojson",
+            ],
+            ["blobedesz7", "blobedesz8", "blobedesz9"],
+            [ca, nb, pf],
+        ):
+            d_shp = (
+                shpdirname.replace("(", "").replace(")", "").replace(" ", "_")
+            )
+            if geojson == "Police_Beats_current.geojson":
+                boundary = geojson.split(".")[0]
+                if cloud_data:
+                    geojson = "CPD_Districts.geojson"
+                else:
+                    geojson = "CPD districts.geojson"
+            else:
+                boundary = geojson.split("-")[-1].split(".")[0]
+            # Retrieve cloud-based data for cloud-based run
+            if cloud_data:
+                get_cloud_data(
+                    ctx,
+                    blob_file_name=geojson,
+                    d_shp=d_shp,
+                    az_storage_container_name=az_storage_container_name,
+                    data_dir=data_dir,
+                    az_blob_name=blob_name,
+                    blob_dir_name=boundary,
+                )
     run(f"docker pull {image_name} || True")
     run(
         (
@@ -998,12 +1033,21 @@ def docker_build_run_container(
             f"--pull --cache-from {image_name} -t {image_type}:v1 ."
         )
     )
-    run(
-        (
-            f"docker run -d -p {port}:{port} "
-            f"--name {container_name} {image_type}:v1"
+    if cloud_data:
+        envs = "--env AZURE_STORAGE_ACCOUNT --env AZURE_STORAGE_KEY"
+        run(
+            (
+                f"docker run {envs} -d -p {port}:{port} "
+                f"--name {container_name} {image_type}:v1"
+            )
         )
-    )
+    else:
+        run(
+            (
+                f"docker run -d -p {port}:{port} "
+                f"--name {container_name} {image_type}:v1"
+            )
+        )
 
 
 @task
