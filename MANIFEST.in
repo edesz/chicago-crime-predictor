@@ -1,0 +1,17 @@
+include *.ipynb
+include *.md
+include *.rst
+include *.yaml
+include *.yml
+include *.py
+include *.sh
+include Dockerfile*
+include .dockerignore
+include LICENSE
+include tox.ini
+exclude .gitignore
+recursive-include data *
+recursive-include src *
+recursive-include reports *
+recursive-include aci-dash *
+recursive-include pyviz_panel *

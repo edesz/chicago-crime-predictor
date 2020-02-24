@@ -1,0 +1,6 @@
+invoke
+pandas
+geopandas
+azure
+dash
+gunicorn

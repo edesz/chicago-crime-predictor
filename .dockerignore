@@ -1,0 +1,4 @@
+.dockerignore
+Dockerfile-build
+__pycache__/
+.tox/

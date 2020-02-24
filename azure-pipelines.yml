@@ -1,0 +1,78 @@
+# pr:
+# - run whenever pull request is opened with one of specified target branches
+#   or when changes are pushed to such a pull request
+pr:
+    autoCancel: false
+    branches:
+      include:
+        - master
+        - releases/*
+      exclude:
+        - releases/old*
+        - releases/ancient/*
+    paths:
+      include:
+        - "*" # same as "/" for the repository root
+
+  # trigger: run whenever push is made to specified branches
+  trigger:
+    branches:
+      include:
+        - master
+        - releases/*
+      exclude:
+        - releases/old*
+        - releases/ancient/*
+    paths:
+      include:
+        - "*"
+
+  # schedules: run on schedules defined using cron syntax
+  schedules:
+    - cron: "0 0 * * *"
+      displayName: Daily midnight build only if code has changed since last run
+      branches:
+        include:
+          - master
+          - releases/*
+        exclude:
+          - releases/old*
+          - releases/ancient/*
+      always: false
+    - cron: "0 12 * * 0"
+      displayName: Weekly Sunday noon build whether code has changed or not since last run
+      branches:
+        include:
+          - master
+          - releases/*
+        exclude:
+          - releases/old*
+          - releases/ancient/*
+      always: true
+
+  name: $(Date:yyyyMMdd)$(Rev:.r)
+
+  jobs:
+    - job: linux
+      strategy:
+        matrix:
+          py37:
+            python.version: "3.7"
+        maxParallel: 1
+
+      pool:
+        vmImage: "ubuntu-latest"
+
+      steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: "$(python.version)"
+            architecture: "x64"
+          displayName: "Use Python $(python.version)"
+        - script: pip install tox
+          displayName: "Install Tox"
+        - script: tox -e build
+          displayName: "Run project"
+          env:
+            AZURE_STORAGE_ACCOUNT: $(AZURE_STORAGE_ACCOUNT)
+            AZURE_STORAGE_KEY: $(AZURE_STORAGE_KEY)

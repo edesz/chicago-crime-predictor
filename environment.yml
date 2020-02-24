@@ -1,0 +1,33 @@
+name: chicago-crime-predictor
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pip:
+    - jupyter
+    - invoke
+    - nb_black
+    - papermill
+    - numpy
+    - pandas
+    - scipy
+    - statsmodels
+    - scikit-learn
+    - yellowbrick
+    - imblearn
+    - xgboost
+    - lightgbm
+    - matplotlib
+    - seaborn
+    - geopandas
+    - uszipcode
+    - lxml
+    - fake-useragent
+    - beautifulsoup4
+    - requests
+    - pyarrow
+    - altair
+    - vega
+    - vega_datasets
+    - dash
