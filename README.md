@@ -56,3 +56,5 @@ The category of crime is predicted<sup>[1](#myfootnote1)</sup> using machine lea
    ```
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/edesz/chicago-crime-predictor/master)
+
+[![Build Status](https://dev.azure.com/elsdes3/elsdes3/_apis/build/status/edesz.chicago-crime-predictor?branchName=master)](https://dev.azure.com/elsdes3/elsdes3/_build/latest?definitionId=13&branchName=master)
