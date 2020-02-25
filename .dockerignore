@@ -1,4 +1,9 @@
-.dockerignore
-Dockerfile-build
+azure-pipelines.yml
+.git
 __pycache__/
 .tox/
+.pytest_cache
+.dockerignore
+.gitignore
+Dockerfile-build
+README.md
