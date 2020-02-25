@@ -44,7 +44,7 @@ docker_tag = "aci-tutorial-app"
 # Docker configurations
 docker_cfgs = {
     "docker_image_name": {
-        "build": "python:3.8.1-stretch",
+        "ci": "python:3.7.6-stretch",
         "view": "python:3.8.1-slim",
     }
 }
@@ -1076,7 +1076,7 @@ def docker_delete_all(ctx, image_type="view"):
 
 @task
 def docker_ci(
-    ctx, docker_cfgs=docker_cfgs, image_type="build", cleanup_container="no"
+    ctx, docker_cfgs=docker_cfgs, image_type="ci", cleanup_container="no"
 ):
     """
     Run CI build inside Docker container
@@ -1084,7 +1084,7 @@ def docker_ci(
     docker_build_run_container(
         ctx,
         image_name=docker_cfgs["docker_image_name"][image_type],
-        container_name="tox_build",
+        container_name="tox_ci",
         image_type=image_type,
     )
     if cleanup_container == "yes":
