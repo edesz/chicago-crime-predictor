@@ -44,8 +44,8 @@ docker_tag = "aci-tutorial-app"
 # Docker configurations
 docker_cfgs = {
     "docker_image_name": {
-        "build": "python:3.7.6-stretch",
-        "view": "python:3.7.6-slim",
+        "build": "python:3.8.1-stretch",
+        "view": "python:3.8.1-slim",
     }
 }
 
