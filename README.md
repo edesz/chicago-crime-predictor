@@ -23,12 +23,7 @@ The category of crime is predicted<sup>[1](#myfootnote1)</sup> using machine lea
    ```bash
    $ git clone https://github.com/edesz/chicago-crime-predictor.git
    ```
-2. Create Python virtual environment, install packages and run project notebooks `1*.ipynb`, `3*.ipynb`, `4_altair*.ipynb` and `4_plotly*.ipynb`
-   ```bash
-   $ ./tasks.sh "build"
-   ```
-
-   or manually run notebooks in the following order
+2. Create Python virtual environment, install packages and run notebooks in the following order
    - `1_get_data.ipynb`
      - programmatically downloads Chicago crime data for the years 2018 and 2019
      - retrieves weather data for Chicago O'Hare airport weather station
