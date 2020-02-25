@@ -40,11 +40,6 @@ basedir = Path(__file__).resolve().parent
 with open(basedir.joinpath("DESCRIPTION.rst"), "r") as fh:
     long_description = fh.read()
 
-# Get packages required for code formatting checks
-test_packages = get_packages(
-    basedir, "tox.ini", "deps =", "build: jupyter", ["test: ", "lint: "]
-) + ["tox"]
-
 # Get packages (dependencies)
 packages = get_packages(
     basedir, "tox.ini", "lint: pre-commit", "ci: jupyter", ["build: "]
@@ -57,7 +52,7 @@ dev_packages = packages + ["bumpversion"]
 setup_packages = ["check-manifest"]
 
 setup(
-    name="sample_proj",
+    name="chi_crime_predict",
     packages=find_packages(
         exclude=[".pre-commit-config.yaml", ".gitignore", "tests"]
     ),
@@ -90,9 +85,6 @@ setup(
     setup_requires=setup_packages,
     # production dependencies
     install_requires=packages,
-    # test dependencies
-    test_suite="tests",
-    tests_require=test_packages,
     # optional (development or testing) dependencies
     extras_require={"dev": dev_packages},
     python_requires=">=3.7",
