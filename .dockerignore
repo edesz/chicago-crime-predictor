@@ -1,9 +1,10 @@
-azure-pipelines.yml
 .git
-__pycache__/
 .tox/
-.pytest_cache
 .dockerignore
 .gitignore
+.pytest_cache
+.pre-commit-config.yaml
+azure-pipelines.yml
+__pycache__/
 Dockerfile-build
 README.md
