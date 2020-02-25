@@ -40,15 +40,15 @@ basedir = Path(__file__).resolve().parent
 with open(basedir.joinpath("DESCRIPTION.rst"), "r") as fh:
     long_description = fh.read()
 
-# Get packages required for code formatting checks and tests
+# Get packages required for code formatting checks
 test_packages = get_packages(
-    basedir, "tox.ini", "deps =", "build: numpy", ["test: ", "lint: "]
-) + ["tox", "click"]
+    basedir, "tox.ini", "deps =", "build: jupyter", ["test: ", "lint: "]
+) + ["tox"]
 
 # Get packages (dependencies)
 packages = get_packages(
-    basedir, "tox.ini", "test: pytest-repeat", "commands =", ["build: "]
-) + ["tox", "click"]
+    basedir, "tox.ini", "lint: pre-commit", "ci: jupyter", ["build: "]
+) + ["tox"]
 
 # Get dev packages
 dev_packages = packages + ["bumpversion"]
