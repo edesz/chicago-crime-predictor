@@ -1053,7 +1053,7 @@ def docker_build_run_container(
 @task
 def docker_build_run_view_container(ctx):
     """
-    Build docker image and run container
+    Build docker image and run container to view project dashboard
     """
     pre = f"docker build ./{app_to_run}"
     post = f"-t {docker_tag}"
@@ -1075,11 +1075,11 @@ def docker_delete_all(ctx, image_type="view"):
 
 
 @task
-def docker_build(
+def docker_ci(
     ctx, docker_cfgs=docker_cfgs, image_type="build", cleanup_container="no"
 ):
     """
-    Run build inside Docker container
+    Run CI build inside Docker container
     """
     docker_build_run_container(
         ctx,
@@ -1106,5 +1106,5 @@ def docker_view(ctx, cleanup_container="no", image_type="view"):
 ns = Collection()
 ns.add_task(run_trials, name="run-project")
 ns.add_task(serve, name="serve")
-ns.add_task(docker_build, "docker-build")
+ns.add_task(docker_ci, "docker-ci")
 ns.add_task(docker_view, "docker-view")
