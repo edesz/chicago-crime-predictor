@@ -71,8 +71,8 @@ jobs:
         displayName: "Use Python $(python.version)"
       - script: pip install tox
         displayName: "Install Tox"
-      - script: tox -e build
-        displayName: "Run project"
+      - script: tox -e ci
+        displayName: "Run CI build"
         env:
           AZURE_STORAGE_ACCOUNT: $(AZURE_STORAGE_ACCOUNT)
           AZURE_STORAGE_KEY: $(AZURE_STORAGE_KEY)
