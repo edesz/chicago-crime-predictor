@@ -12,7 +12,6 @@ from invoke import Collection, task
 from invoke.context import Context
 
 PROJ_ROOT_DIR = Path().cwd()
-dockerfile_dir_path = PROJ_ROOT_DIR
 
 nb_path = PROJ_ROOT_DIR
 data_dir = PROJ_ROOT_DIR / "data"
