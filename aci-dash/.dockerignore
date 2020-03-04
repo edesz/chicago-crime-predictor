@@ -1,4 +1,11 @@
 .dockerignore
-Dockerfile-build
-__pycache__/
-.tox/
+.git/
+.gitignore
+.pre-commit-config.yaml
+LICENSE
+DESCRIPTION.rst
+Dockerfile
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
