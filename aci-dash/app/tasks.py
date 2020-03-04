@@ -71,7 +71,7 @@ def delete_data_dir(ctx, blob_file_name=None, d_shp=None, blob_dir_name=None):
     """
     Delete local data directory
     """
-    # rm_tree(data_dir / "raw" / d_shp)
+    rm_tree(data_dir / "raw" / d_shp)
     (data_dir / "raw" / blob_file_name).unlink()
 
 
@@ -126,7 +126,7 @@ def delete_data_dirs(ctx):
             geojson = "CPD_Districts.geojson"
         else:
             boundary = geojson.split("-")[-1].split(".")[0]
-        # Retrieve cloud-based data for cloud-based run
+        # Delete cloud-based data used in cloud-based run
         delete_data_dir(
             ctx, blob_file_name=geojson, d_shp=d_shp, blob_dir_name=boundary
         )
