@@ -1095,11 +1095,11 @@ def docker_view(ctx, cleanup_container="no", image_type="view"):
     """
     Run view inside Docker container
     """
-    run("cd aci-dash/app && invoke setup-data-dirs")
+    run("cd aci-dash && invoke setup-data-dirs")
     docker_build_run_view_container(ctx)
     if cleanup_container == "yes":
         docker_delete_all(ctx, image_type=image_type)
-        run("cd aci-dash/app && invoke delete-data-dirs")
+        run("cd aci-dash && invoke delete-data-dirs")
 
 
 ns = Collection()
