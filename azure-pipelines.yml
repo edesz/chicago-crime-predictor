@@ -71,6 +71,8 @@ jobs:
         displayName: "Use Python $(python.version)"
       - script: pip install tox
         displayName: "Install Tox"
+      - script: tox -e lint
+        displayName: "Run code formatting checks"
       - script: tox -e ci
         displayName: "Run CI build"
         env:
