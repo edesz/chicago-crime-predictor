@@ -54,7 +54,7 @@ setup_packages = ["check-manifest"]
 setup(
     name="chi_crime_predict",
     packages=find_packages(
-        exclude=[".pre-commit-config.yaml", ".gitignore", "tests"]
+        exclude=[".pre-commit-config.yaml", ".gitignore"]
     ),
     use_scm_version=True,
     version="0.0.1",
