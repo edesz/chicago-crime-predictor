@@ -53,9 +53,7 @@ setup_packages = ["check-manifest"]
 
 setup(
     name="chi_crime_predict",
-    packages=find_packages(
-        exclude=[".pre-commit-config.yaml", ".gitignore"]
-    ),
+    packages=find_packages(exclude=[".pre-commit-config.yaml", ".gitignore"]),
     use_scm_version=True,
     version="0.0.1",
     description="Python DataScience project for crime classification",
