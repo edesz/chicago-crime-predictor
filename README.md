@@ -1,6 +1,6 @@
 # [Chicago Crime Predictor](#chicago-crime-predictor)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/edesz/chicago-crime-predictor/master) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/edesz/chicago-crime-predictor/master/1_get_data.ipynb) [![Build Status](https://dev.azure.com/elsdes3/elsdes3/_apis/build/status/edesz.chicago-crime-predictor?branchName=master)](https://dev.azure.com/elsdes3/elsdes3/_build/latest?definitionId=13&branchName=master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/edesz/chicago-crime-predictor/master) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/edesz/chicago-crime-predictor/master/1_get_data.ipynb) ![CI](https://github.com/edesz/chicago-crime-predictor/workflows/CI/badge.svg)
 
 ## [Project Idea](#project-idea)
 ### [Project Overview](#project-overview)
