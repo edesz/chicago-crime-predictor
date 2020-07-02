@@ -1066,11 +1066,11 @@ def docker_build_run_view_container(ctx):
 
 @task
 def docker_delete_all(ctx, image_type="view"):
-    run(f"docker stop $(docker ps -a -q)", hide=True)
-    run(f"docker rm $(docker ps -a -q)", hide=True)
+    run("docker stop $(docker ps -a -q)", hide=True)
+    run("docker rm $(docker ps -a -q)", hide=True)
     if image_type == "aci-view":
-        run(f"docker rmi -f $(docker images '{docker_tag}' -q)")
-    run(f"docker rmi $(docker images -q)", hide=True)
+        run("docker rmi -f $(docker images '{docker_tag}' -q)")
+    run("docker rmi $(docker images -q)", hide=True)
 
 
 @task
